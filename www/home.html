@@ -84,11 +84,14 @@
     <!-- -------------------- CONTENT ------------------------------------------- -->
 
     <div class="fixed-action-btn">
-        <a class="btn-floating btn-large red" href="cart.html">
+        <a class="btn-floating btn-large red" href="#cart-modal">
             <i class="large material-icons">shopping_cart</i>
         </a>
-    </div>
 
+        <a class="btn-floating btn-large green" href="pages/history.html">
+            <i class="large material-icons">history</i>
+        </a>
+    </div>
     <!-- Order Modal Trigger --  NOW IT IS TRIGGERED PROGRAMATICALLY
     <a href="#order-modal" class="btn waves-effect waves-teal white teal-text full-width">Orders<i class="material-icons right">launch</i></a> -->
 
@@ -126,6 +129,51 @@
 
             <a href="#!" class="modal-action waves-effect waves-orange btn-flat green white-text" id="submit-order-btn">Order</a>
             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+        </div>
+    </div>
+
+
+
+    <!-- Cart Modal Structure -->
+    <div id="cart-modal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+
+            <h4>Summary</h4>
+            <div class="row">
+                <div class="col s6">Item</div>
+                <div class="col s2">Quantity</div>
+                <div class="col s2">Rate</div>
+                <div class="col s2">Amount</div>
+            </div>
+
+            <div class="row" id="cart-items">
+
+            </div>
+
+            <h4 class="right">Total: Rs. <span id="total-amt">0.00</span></h4>
+        </div>
+
+
+        <div class="modal-footer">
+
+            <a href="#!" class="modal-action waves-effect waves-orange btn-flat green white-text" id="submit-order-btn">Confirm</a>
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red-text">Cancel</a>
+        </div>
+    </div>
+
+    <!-- Payment Modal Structure -->
+    <div id="cart-modal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+
+
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            <a href="#!" class="modal-action waves-effect waves-orange btn-flat green white-text" id="submit-order-btn">Confirm</a>
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red-text">Cancel</a>
         </div>
     </div>
 

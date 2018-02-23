@@ -1,5 +1,9 @@
 var orderobject = {};
 
+var orderlist = [];
+
+var finaltotal = 0;
+
 function orderthis(item, itemcategory, rate, imagelink) {
     document.getElementById("modal-item-name").innerHTML = item;
     document.getElementById("modal-rate").innerHTML = rate;
@@ -12,33 +16,65 @@ function orderthis(item, itemcategory, rate, imagelink) {
     orderobject = {
         item: item,
         category: itemcategory,
+        rate: rate,
         username: Cookies.get("username")
     };
 
+
+}
+
+
+function updatetotal () {
+    document.getElementById("total-amt").innerHTML = finaltotal;
 }
 
 
 function ordersend(itemconfirm) {
-
     orderobject.quantity = parseInt($("#order-quantity").val(), 10);
+
     if (orderobject.item == itemconfirm) {
         //console.log(orderobject);
+        orderlist.push(orderobject);
+        $("#order-modal").modal('close');
 
+        finaltotal = finaltotal + orderobject.quantity * orderobject.rate;
 
-        $.get(hostaddress + "/canteen/order", orderobject, function (returnedstring) {
+        var elem = "<div class='col s6'>" + orderobject.item + "</div><div class='col s2'>" + orderobject.quantity + "</div><div class='col s2'>" + orderobject.rate + "</div><div class='col s2 strong'>" + orderobject.quantity * orderobject.rate + "</div>";
 
-            if (returnedstring == "success") {
-                $("#order-modal").modal('close');
-                Materialize.toast("Order for " + orderobject.quantity + " " + orderobject.item + " sent!", 3000);
+        $("#cart-items").append(elem);
 
-            } else {
-
-                Materialize.toast("Order failed!", 3000);
-            }
-            hideWait();
-        });
+        Materialize.toast(orderobject.quantity + " " + orderobject.item + " added to cart!", 3000);
+    } else {
+        Materialize.toast("Order failed!", 3000);
     }
+    updatetotal();
+    hideWait();
+
 }
+
+
+
+
+
+
+
+function orderconfirm() {
+    showWait();
+    $.get(hostaddress + "/canteen/order", orderlist, function (returnedstring) {
+
+        if (returnedstring == "success") {
+            $("#order-modal").modal('close');
+            Materialize.toast("Order sent!", 3000);
+
+        } else {
+
+            Materialize.toast("Order failed!", 3000);
+        }
+        hideWait();
+    });
+}
+
+
 
 $("#submit-order-btn").click(function () {
     showWait();
