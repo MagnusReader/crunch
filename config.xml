@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 
-<widget id="com.dayshmookh.clavi" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Clavi</name>
+<widget id="com.dayshmookh.crunch" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Crunch</name>
 
     <description>
-        Your academic assistant.
+        Your food assistant.
     </description>
     
     <author email="krushndayshmookh@gmail.com" href="http://www.dayshmookh.com">
-        Dayshmookh Apps
+        Crunch Developers
     </author>
 
     <content src="index.html" />
