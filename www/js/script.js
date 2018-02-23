@@ -44,7 +44,7 @@ $(document).ready(function () {
     $('.modal').modal();
 
 
-    document.getElementById("user-greeter").innerHTML = Cookies.get("username-name");
+    //document.getElementById("user-greeter").innerHTML = Cookies.get("username-name");
 
     hideWait();
 
