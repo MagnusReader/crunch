@@ -2,47 +2,52 @@
 <html>
 
 <head>
-	<title>Welcome</title>
+    <title>Welcome</title>
 
-	<!-- -------------------- META ------------------------------------------- -->
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- -------------------- META ------------------------------------------- -->
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-	<!-- -------------------- FONT ------------------------------------------- -->
+    <!-- -------------------- FONT ------------------------------------------- -->
 
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-	<!-- -------------------- CSS ------------------------------------------- -->
-	<link type="text/css" rel="stylesheet" href="css/materialize.css">
-	<link type="text/css" rel="stylesheet" href="css/style.css">
+    <!-- -------------------- CSS ------------------------------------------- -->
+    <link type="text/css" rel="stylesheet" href="css/materialize.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
 
-	<!-- -------------------- SCRIPTS ------------------------------------------- -->
-	<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
-	<script type="text/javascript" src="js/materialize.js"></script>
-	<script type="text/javascript" src="js/js.cookie.js"></script>
+    <!-- -------------------- SCRIPTS ------------------------------------------- -->
+    <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript" src="js/js.cookie.js"></script>
 
+    <script>
+        if (Cookies.get('username') == undefined) {
+            window.location = "pages/login.html";
+        }
 
+    </script>
 
 </head>
 
 <body>
 
 
-	<!-- -------------------- CONTENT ------------------------------------------- -->
-	<div class="screen-unit valign-wrapper center blue">
-		<div class="container center">
-			<h1 class="center white-text">Hello</h1>
+    <!-- -------------------- CONTENT ------------------------------------------- -->
+    <div class="screen-unit valign-wrapper center blue">
+        <div class="container center">
+            <h1 class="center white-text">Hello</h1>
 
-			<p class="white-text flow-text">Loading...</p>
+            <p class="white-text flow-text">Loading...</p>
 
-		</div>
-	</div>
-	<!-- -------------------- CONTENT ------------------------------------------- -->
+        </div>
+    </div>
+    <!-- -------------------- CONTENT ------------------------------------------- -->
 
 
-	<!-- --------------------------- SCRIPTS ------------------------------------ -->
-	<script type="text/javascript" src="js/script.js" id="global-script"></script>
-	<script type="text/javascript" src="loader.js"></script>
+    <!-- --------------------------- SCRIPTS ------------------------------------ -->
+    <script type="text/javascript" src="js/script.js" id="global-script"></script>
+
 
 
 
