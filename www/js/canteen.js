@@ -14,6 +14,7 @@ function orderthis(item, itemcategory, rate, imagelink) {
     writetotal();
 
     orderobject = {
+        time: new Date(),
         item: item,
         category: itemcategory,
         rate: rate,
@@ -24,7 +25,7 @@ function orderthis(item, itemcategory, rate, imagelink) {
 }
 
 
-function updatetotal () {
+function updatetotal() {
     document.getElementById("total-amt").innerHTML = finaltotal;
 }
 
@@ -35,6 +36,10 @@ function ordersend(itemconfirm) {
     if (orderobject.item == itemconfirm) {
         //console.log(orderobject);
         orderlist.push(orderobject);
+
+        //console.log("pushed");
+        //console.log(orderlist);
+
         $("#order-modal").modal('close');
 
         finaltotal = finaltotal + orderobject.quantity * orderobject.rate;
@@ -55,15 +60,25 @@ function ordersend(itemconfirm) {
 
 
 
-
+$(".payment-option").click(function () {
+    // console.log(orderlist);
+    orderconfirm();
+});
 
 
 function orderconfirm() {
     showWait();
-    $.get(hostaddress + "/canteen/order", orderlist, function (returnedstring) {
 
+    $("#payment-modal").modal('close');
+    $("#cart-modal").modal('close');
+    //console.log(orderlist);
+
+    $.post(hostaddress + "/canteen/order", {
+        orders: orderlist
+    }, function (returnedstring) {
+        //console.log(orderlist);
         if (returnedstring == "success") {
-            $("#order-modal").modal('close');
+
             Materialize.toast("Order sent!", 3000);
 
         } else {
@@ -72,6 +87,7 @@ function orderconfirm() {
         }
         hideWait();
     });
+
 }
 
 
@@ -101,7 +117,7 @@ $("#order-quantity").change(function () {
 });
 
 
-$("#pay-now-btn").click(function(){
+$("#pay-now-btn").click(function () {
     document.getElementById("confirm-amt").innerHTML = finaltotal;
 });
 
