@@ -5,6 +5,7 @@
 
 .full-width {
     width: 100%;
+
 }
 
 .hidden {
@@ -63,11 +64,15 @@
 
 nav .nav-wrapper .side-nav li a {
     font-weight: 400;
+    color: white;
 }
 
 #side-nav-head {
-    font-size: 2em;
-    font-weight: 300;
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 400;
+    font-family: Roboto;
+    color: white;
 }
 
 .strong {
@@ -97,4 +102,34 @@ nav .nav-wrapper .side-nav li a {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
+}
+
+
+.blue-gradient {
+    background: linear-gradient(to right, #4527a0, #f50057 );
+}
+
+ul.tabs.grey.darken-4 {
+    max-height: 50px;
+}
+
+
+#cart-modal .modal-content {
+    padding: 24px 0px;
+
+}
+
+ul.side-nav {
+    background: linear-gradient(155deg, #c5cae9, #0277bd);
+}
+
+
+#cart-modal .modal-content h4 {
+    margin: 24px;
+}
+
+
+.payment-option img {
+    border-radius: 50%;
+    max-width: 100px;
 }
