@@ -94,7 +94,8 @@ $(".logout-btn").click(function () {
     Cookies.remove('username');
     Cookies.remove('username-name');
     //console.log(document.getElementById("global-script").getAttribute("src"));
-    window.location = $("#global-script").attr("src").replace("js/script.js", "pages/login.html");
+    //window.location = $("#global-script").attr("src").replace("js/script.js", "pages/login.html");
+    window.location = "pages/login.html";
 
 });
 

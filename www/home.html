@@ -4,7 +4,7 @@
 <head>
 
 
-    <title>Welcome</title>
+    <title>Canteen</title>
 
     <!-- -------------------- META ------------------------------------------- -->
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -22,9 +22,12 @@
     <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript" src="js/js.cookie.js"></script>
+    <script>
+        if (Cookies.get('username') == undefined) {
+            window.location = "pages/login.html";
+        }
 
-
-    
+    </script>
 
 
 </head>
@@ -40,48 +43,37 @@
     <!-- ----------------------------NAVBAR----------------------------------- -->
     <nav class="fixed">
         <div class="nav-wrapper blue darken-2">
-            <a href="#!" class="brand-logo">Dashboard</a>
-            <a href="#" data-activates="mobile-menu" class="button-collapse" id="mobile-menu-btn"><i class="material-icons">menu</i></a>
+            <a href="#!" class="brand-logo">Canteen</a>
+
+            <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li class="waves-effect"><a href="home.html">Home</a></li>
-                <li class="waves-effect"><a href="pages/profile/index.html">Profile</a></li>
-                <li class="waves-effect"><a href="pages/academics/index.html">Academics</a></li>
-                <li class="waves-effect"><a href="pages/canteen/index.html">Canteen</a></li>
-                <li class="waves-effect"><a href="pages/forum/index.html">Forum</a></li>
-                <li class="waves-effect"><a href="pages/clavIEEE/index.html">clavIEEE</a></li>
-                <li class="waves-effect"><a href="pages/about.html">About</a></li>
+               <!--
+                <li class="waves-effect"><a href="../../home.html">Home</a></li>
+                <li class="waves-effect"><a href="../profile/index.html">Profile</a></li>
+                <li class="waves-effect"><a href="../about.html">About</a></li>
+-->
                 <li class="waves-effect"><a href="#" class="logout-btn">Logout</a></li>
             </ul>
             <ul class="side-nav" id="mobile-menu">
-
                 <li class="side-nav-header full-width green lighten-2"><a href="#" id="side-nav-head">Clavi</a></li>
                 <li class="side-nav-header full-width green lighten-2">
                     <a href="#" id="user-greeter"></a>
                 </li>
 
-                <li class="waves-effect full-width"><a href="home.html">Home</a></li>
-                <li class="waves-effect full-width"><a href="pages/profile/index.html">Profile</a></li>
-                <li class="waves-effect full-width"><a href="pages/academics/index.html">Academics</a></li>
-                <li class="waves-effect full-width"><a href="pages/canteen/index.html">Canteen</a></li>
-                <li class="waves-effect full-width"><a href="pages/forum/index.html">Forum</a></li>
-                <li class="waves-effect full-width"><a href="pages/clavIEEE/index.html">clavIEEE</a></li>
-                <li class="waves-effect full-width"><a href="pages/about.html">About</a></li>
-
-
+                <!--
+                <li class="waves-effect full-width"><a href="../../home.html">Home</a></li>
+                <li class="waves-effect full-width"><a href="../profile/index.html">Profile</a></li>
+                <li class="waves-effect full-width"><a href="../about.html">About</a></li>
+-->
                 <li class="waves-effect full-width"><a href="#" class="logout-btn">Logout</a></li>
             </ul>
         </div>
     </nav>
-    <!-- ------------------- NAVBAR END ---------------------------------------- -->
+    <!-- ------------------- NAVBAR -------------------------------------------- -->
 
-    <!-- ------------------- Tutorial Tap Target-------------------------------------------- -->
-    <div class="tap-target cyan" data-activates="mobile-menu-btn" id="menu-btn-tap-target">
-        <div class="tap-target-content">
-            <h5>Welcome to Clavi!</h5>
-            <p>Find all your most used tasks right here in the hamburger menu.</p>
-        </div>
-    </div>
-    <!-- ----------------------------------------------------------------------------------- -->
+
+
+
 
 
 
@@ -89,179 +81,95 @@
 
 
     <!-- -------------------- CONTENT ------------------------------------------- -->
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large red" href="cart.html">
+            <i class="large material-icons">shopping_cart</i>
+        </a>
+    </div>
+
+    <!-- Order Modal Trigger --  NOW IT IS TRIGGERED PROGRAMATICALLY
+    <a href="#order-modal" class="btn waves-effect waves-teal white teal-text full-width">Orders<i class="material-icons right">launch</i></a> -->
+
+    <!-- Order Modal Structure -->
+    <div id="order-modal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col s12">
+                    <h3 id="modal-item-name" class="blue-text text-darken-5 center"></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m6">
+                    <img src="" alt="item image" id="modal-image" width="100%">
+                </div>
+
+                <div class="col s12 m6">
+
+                    <p class="grey-text text-darken-5 flow-text col s12">Rs. <span id="modal-rate" class="black-text"></span> per plate</p>
+
+                    <div class="col s12 input-field">
+                        <input id="order-quantity" type="number" class="validate">
+                        <label data-error="Enter an interger." for="order-quantity">Quantity</label>
+                    </div>
+
+                    <h4 class="col s12">Rs. <span id="total-amount" class="strong"></span></h4>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <a href="#!" class="modal-action waves-effect waves-orange btn-flat green white-text" id="submit-order-btn">Order</a>
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- ------------------- PAGE CONTENTS ------------------------ -->
+
     <div class="container">
-        <h3 class="center">Hello</h3>
+
+
+
+        <div>
+            <h4>Trending</h4>
+            <div class="row" id="trending"></div>
+        </div>
+
 
 
 
         <div class="row">
+            <h4>Categories</h4>
 
-            <div class="col s12 m3 push-m9 card collection hide-on-small-only">
-                <h5 class="center">Notifications</h5>
-
-                <div class="col s12 collection-item">
-                    <p class="strong center">General</p>
-                    <div class="full-width" id="notification-general-notices">
-                    </div>
-                </div>
-
-                <div class="col s12 collection-item">
-                    <p class="strong center">Departmental</p>
-                    <div class="full-width" id="notification-departmental-notices">
-                    </div>
-                </div>
-
-                <div class="col s12 collection-item">
-                    <p class="strong center">Events</p>
-                    <div class="full-width" id="notification-general-events">
-                    </div>
-                    <div class="full-width" id="notification-departmental-events">
-                    </div>
-                </div>
-
-                <a class="btn right btn-flat" href="#">View All</a>
-
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab"><a href="#snacks" class="active">Snacks</a></li>
+                    <li class="tab"><a href="#sweets">Sweets</a></li>
+                    <li class="tab"><a href="#colddrinks">Cold Drinks</a></li>
+                    <li class="tab"><a href="#icecreams">Ice creams</a></li>
+                    <li class="tab"><a href="#hotdrinks">Hot Drinks</a></li>
+                </ul>
             </div>
 
+            <div class="col s12" id="snacks"></div>
+            <div class="col s12" id="sweets"></div>
+            <div class="col s12" id="icecreams"></div>
+            <div class="col s12" id="colddrinks"></div>
+            <div class="col s12" id="hotdrinks"> </div>
 
-            <div class="col s12 m9 pull-m3 row">
-
-
-                <div class="col s12 hide-on-med-and-up center">
-                    <!-- Notification Modal Trigger -->
-                    <a href="#notification-modal" class="btn waves-effect waves-teal white teal-text full-width">Notifications<i class="material-icons right">launch</i></a>
-                </div>
-
-
-                <div class="col s12 white-text hide-on-med-and-up">This is empty space.</div>
-
-
-                <div class="col s6 m4">
-                    <div class="card">
-                        <div class="card-image tiny">
-                            <img src="images/sample-1.jpg">
-                            <span class="card-title truncate">Attendance</span>
-                        </div>
-                        <!--<div class="card-content">
-							<p>Hungry? Get something to eat now!</p>
-						</div>-->
-                        <div class="card-action">
-                            <a href="pages/academics/attendance.html" class="truncate">See chart</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col s6 m4">
-                    <div class="card">
-                        <div class="card-image tiny">
-                            <img src="images/sample-1.jpg">
-                            <span class="card-title truncate">Forum</span>
-                        </div>
-
-                        <div class="card-action">
-                            <a href="pages/forum/index.html" class="truncate">Open Chats</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col s6 m4">
-                    <div class="card">
-                        <div class="card-image tiny">
-                            <img src="images/sample-1.jpg">
-                            <span class="card-title truncate">Academics</span>
-                        </div>
-
-                        <div class="card-action">
-                            <a href="pages/academics/index.html" class="truncate">Performance</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col s6 m4">
-                    <div class="card">
-                        <div class="card-image tiny">
-                            <img src="images/sample-1.jpg">
-                            <span class="card-title truncate">Canteen</span>
-                        </div>
-
-                        <div class="card-action">
-                            <a href="pages/canteen/index.html" class="truncate">Order now</a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col s6 m4">
-                    <div class="card">
-                        <div class="card-image tiny">
-                            <img src="images/sample-1.jpg">
-                            <span class="card-title truncate">Profile</span>
-                        </div>
-
-                        <div class="card-action">
-                            <a href="#" class="truncate">About you</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col s6 m4">
-                    <div class="card">
-                        <div class="card-image tiny">
-                            <img src="images/sample-1.jpg">
-                            <span class="card-title truncate">clavIEEE</span>
-                        </div>
-
-                        <div class="card-action">
-                            <a href="pages/clavIEEE/index.html" class="truncate">IEEE Resources</a>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
 
         </div>
+
     </div>
 
-
-
-
-
-    <!-- Notification Modal Structure -->
-    <div id="notification-modal" class="modal bottom-sheet">
-        <div class="modal-content">
-            <h4>Notifications</h4>
-            <div class="col s12 collection">
-
-
-                <div class="col s12 collection-item">
-                    <p class="strong center">General</p>
-                    <div class="full-width" id="notification-small-general-notices">
-                    </div>
-                </div>
-
-                <div class="col s12 collection-item">
-                    <p class="strong center">Departmental</p>
-                    <div class="full-width" id="notification-small-departmental-notices">
-                    </div>
-                </div>
-
-                <div class="col s12 collection-item">
-                    <p class="strong center">Events</p>
-                    <div class="full-width" id="notification-small-general-events">
-                    </div>
-                    <div class="full-width" id="notification-small-departmental-events">
-                    </div>
-                </div>
-
-
-
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-        </div>
-    </div>
 
     <!-- -------------------- CONTENT ------------------------------------------- -->
 
@@ -284,16 +192,11 @@
     <!-- ---------------------------SCRIPTS----------------------------------- -->
 
 
-    <script type="text/javascript" src="js/script.js" id="global-script"></script>
-    <script type="text/javascript" src="js/home.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/canteen.js"></script>
 
-    <script>
-        hideWait();
-        if (Cookies.get('username') == undefined) {
-            window.location = "pages/login.html";
-        }
 
-    </script>
+
 
 
 
