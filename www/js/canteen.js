@@ -101,7 +101,9 @@ $("#order-quantity").change(function () {
 });
 
 
-
+$("#pay-now-btn").click(function(){
+    document.getElementById("confirm-amt").innerHTML = finaltotal;
+});
 
 
 function getcanteen() {

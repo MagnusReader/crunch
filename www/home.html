@@ -156,24 +156,37 @@
 
         <div class="modal-footer">
 
-            <a href="#!" class="modal-action waves-effect waves-orange btn-flat green white-text" id="submit-order-btn">Confirm</a>
+            <a href="#payment-modal" class="modal-action waves-effect waves-orange btn-flat green white-text" id="pay-now-btn">Confirm</a>
             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red-text">Cancel</a>
         </div>
     </div>
 
     <!-- Payment Modal Structure -->
-    <div id="cart-modal" class="modal modal-fixed-footer">
+    <div id="payment-modal" class="modal modal-fixed-footer">
         <div class="modal-content">
 
 
+            <div class="container">
+                <h3 class="center">Rs. <span id="confirm-amt"></span></h3>
+                <div class="row">
+                    <div class="col s6 m4 push-s3 push-m4 btn btn-flat waves-effect white-text blue">PayTM</div>
+                </div>
+                <div class="row">
+                    <div class="col s6 m4 push-s3 push-m4 btn btn-flat waves-effect white-text blue darken-3">PayPal</div>
+                </div>
+                <div class="row">
+                    <div class="col s6 m4 push-s3 push-m4 btn btn-flat waves-effect white-text green">Net Banking</div>
+                </div>
+                <div class="row">
+                    <div class="col s6 m4 push-s3 push-m4 btn btn-flat waves-effect white-text orange">UPI</div>
+                </div>
+
+            </div>
 
         </div>
 
-
         <div class="modal-footer">
-
-            <a href="#!" class="modal-action waves-effect waves-orange btn-flat green white-text" id="submit-order-btn">Confirm</a>
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red-text">Cancel</a>
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red-text center">Cancel</a>
         </div>
     </div>
 
