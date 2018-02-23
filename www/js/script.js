@@ -26,17 +26,17 @@ $(document).ready(function () {
     $('.button-collapse').sideNav();
 
 
-    $('ul.tabs').tabs({
+   /* $('ul.tabs').tabs({
         swipeable: true
-    });
+    });*/
 
     $('ul.tabs').tabs();
-    $('.parallax').parallax();
+    //$('.parallax').parallax();
 
-    $('.carousel.carousel-slider').carousel({
-        fullWidth: true
-    });
-    $('.carousel').carousel();
+    //$('.carousel.carousel-slider').carousel({
+      //  fullWidth: true
+    //});
+    //$('.carousel').carousel();
 
 
 
